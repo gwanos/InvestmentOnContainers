@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Domain\" />
+    <Folder Include="DataScraper\" />
+    <Folder Include="Extension\" />
+    <Folder Include="DataScraper\Crawler\" />
+    <Folder Include="DataScraper\Parser\" />
+    <Folder Include="DataScraper\Scraper\" />
+    <Folder Include="Service\" />
+    <Folder Include="DataTable\" />
+    <Folder Include="Exception\" />
+    <Folder Include="DataTable\Files\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.23" />
+    <PackageReference Include="Z.ExtensionMethods" Version="2.1.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="DataTable\Files\ListedCompanies.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="DataTable\Files\NaverFinance.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DataTable\Files\PublicCompanies.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="DataScraper\Scraper\IFinancialSummaryScraper.cs" />
+    <Compile Remove="DataScraper\Parser\NaverFinanceDataParser.cs" />
+  </ItemGroup>
+</Project>

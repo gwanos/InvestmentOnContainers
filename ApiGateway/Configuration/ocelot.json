@@ -1,0 +1,53 @@
+﻿{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/stock/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 21080
+        }
+      ],
+      "UpstreamPathTemplate": "/stock/{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      },
+      "FileCacheOptions": {
+        "TtlSeconds": 15,
+        "Region": "StockCache"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/news/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 22080
+        }
+      ],
+      "UpstreamPathTemplate": "/news/{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      },
+      "FileCacheOptions": {
+        "TtlSeconds": 15,
+        "Region": "NewsCache"
+      }
+    }
+  ],
+  "GlobalConfiguration": {
+
+  }
+}
